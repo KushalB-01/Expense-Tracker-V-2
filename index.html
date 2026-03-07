@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Expense Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Background -->
+<div class="background"></div>
+
+<!-- Dark/Light toggle -->
+<div class="toggle-container">
+    <button id="toggle-theme">🌙</button>
+</div>
+
+<!-- Modal for Welcome & Budget -->
+<div id="welcome-modal" class="modal">
+    <div class="modal-content">
+        <img src="https://wallpaperaccess.com/full/10860173.jpg" alt="Welcome" class="modal-img">
+        <h2>👋 Welcome to Smart Expense Tracker!</h2>
+        <p>Set your monthly budget to start tracking your expenses.</p>
+        <input type="number" id="budget-input" placeholder="Enter monthly budget (₹)">
+        <button id="budget-submit">Okay, I have this much for a month!</button>
+    </div>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+    <h1>Smart Expense Tracker</h1>
+
+    <!-- Budget Info -->
+    <div class="budget-info">
+        <p>Budget: ₹<span id="budget-display">0</span> | Spent: ₹<span id="spent-display">0</span> | Remaining: ₹<span id="remaining-display">0</span></p>
+        <p id="warning-text" class="warning"></p>
+    </div>
+
+    <!-- Add Expense Form -->
+    <form id="expense-form">
+        <input type="text" id="description" placeholder="Description" required>
+        <input type="number" id="amount" placeholder="Amount" required>
+        <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Food">🍔 Food</option>
+            <option value="Travel">✈️ Travel</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Bills">💡 Bills</option>
+            <option value="Others">🔖 Others</option>
+        </select>
+        <input type="date" id="date" required>
+        <button type="submit">Add Expense</button>
+    </form>
+
+    <!-- Filter -->
+    <div class="filter">
+        <label for="filter-category">Filter by Category:</label>
+        <select id="filter-category">
+            <option value="All">All Categories</option>
+            <option value="Food">🍔 Food</option>
+            <option value="Travel">✈️ Travel</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Bills">💡 Bills</option>
+            <option value="Others">🔖 Others</option>
+        </select>
+    </div>
+
+    <!-- Table -->
+    <div class="table-scroll">
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="expense-table-body">
+                <!-- Expenses here -->
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Total: ₹<span id="total-amount">0</span></h3>
+
+    <!-- Chart at bottom -->
+    <div class="chart-wrapper">
+    <div class="chart-container">
+        <canvas id="budgetChart"></canvas>
+    </div>
+    <div class="chart-gif">
+        <!-- GIF Example -->
+        <img src="https://www.bing.com/th/id/OGC.41359a52f80ca9550cc300bc637712ca?o=7&pid=1.7&rm=3&rurl=https%3a%2f%2fi.pinimg.com%2foriginals%2f2c%2f02%2fa2%2f2c02a28e40ecf8cd5b20da43f6b3e8e0.gif&ehk=RJAsfwSlHcoQ7EoT3OPTU29ERhTtxjfgN3SsyS6A1io%3d" alt="Spending GIF">
+        <!-- OR Video Example -->
+        <!--
+        <video autoplay loop muted width="200">
+            <source src="your-video.mp4" type="video/mp4">
+        </video>
+        -->
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
